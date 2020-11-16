@@ -1,0 +1,32 @@
+<div class="container site-section">
+    <form #loginForm="ngForm" (ngSubmit)='Connected()'>
+        <div class="  form-group">
+            <div class="col-sm-12">
+                <input class="form-control" [(ngModel)]='login.email' [ngModelOptions]="{standalone: true}"
+                    placeholder="Email" type="email">
+                <span id="errorUserEmail"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input class="form-control" [(ngModel)]='login.pwd' [ngModelOptions]="{standalone: true}"
+                    placeholder="Mot de passe" type="password">
+                <span id="errorUserPwd"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+                    Valider
+                </button>
+                <div>
+                    <div *ngFor='let p of allPlayers'>
+                        <span>{{comare(p.email, loginForm.value.email, p.pwd, loginForm.value.pwd)}}, Joueur exisitant</span>
+                        <!-- <span *ngIf='comare(p.email, loginForm.value.email, p.pwd, loginForm.value.pwd)=== false'>
+                            Joueur non exisitant</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="text-white">Edit Player</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form #editPlayerForm="ngForm" (ngSubmit)='validateEdit()'>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]='player.name'
+                            placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)]='player.dateNaissance' placeholder="Date de naissance">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)]='player.description' placeholder="Description">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)]='player.poste' placeholder="Poste">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)]='player.poids' placeholder="Poids">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)]='player.image' placeholder="Image">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary py-3 px-5">EDIT Player</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

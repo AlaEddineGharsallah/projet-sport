@@ -1,0 +1,166 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="text-white">ADMIN</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container site-section bg-dark">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active font-weight-bold" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                role="tab" aria-controls="nav-home" aria-selected="true">Players</a>
+            <a class="nav-item nav-link font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                role="tab" aria-controls="nav-profile" aria-selected="false">Matches</a>
+            <a class="nav-item nav-link font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#nav-user"
+                role="tab" aria-controls="nav-profile" aria-selected="false">Users</a>
+            <a class="nav-item nav-link font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#nav-blog"
+                role="tab" aria-controls="nav-profile" aria-selected="false">Blogs</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="card m-3">
+                <div class="card-body">
+
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>Number Player</th>
+                                <th>Name Player</th>
+                                <th>Poste Player</th>
+                                <th>Date Naissance</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let p of allPlayers'>
+                                <td>{{p.id}}</td>
+                                <td>{{p.name}}</td>
+                                <td>{{p.poste}}</td>
+                                <td>{{p.dateNaissance}}</td>
+                                <td>
+
+                                    <button (click)="displayPlayer(p.id)">Dispaly</button>
+                                    <button (click)="editPlayer(p.id)">Edit</button>
+                                    <button (click)="deletePlayer(p.id)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="card m-3">
+                <div class="card-body">
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>Match</th>
+                                <th>Team One</th>
+                                <th>Logo Team One</th>
+                                <th>Team Two</th>
+                                <th>Logo Team Two</th>
+                                <th>score Team One</th>
+                                <th>score Team Two</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor='let m of allMatches'>
+                                <td>{{m.match}}</td>
+                                <td>{{m.teamOne}} </td>
+                                <td><img [src]="m.logoTeamOne" alt="logo equipe2" height="50px" width="50px"></td>
+                                <td>{{m.teamTwo}} </td>
+                                <td><img src="assets/images/imag-fcb.jpg" alt="logo equipe 2" height="50px"
+                                        width="50px"></td>
+                                <td>{{m.scoreOne}}</td>
+                                <td>{{m.scoreTwo}}</td>
+                                <td>
+                                    <button (click)="displayMatch(m.id)">Dispaly</button>
+                                    <button (click)="editMatch(m.id)">Edit</button>
+                                    <button (click)="deleteMatch(m.id)">Delete</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-user" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="card m-3">
+                <div class="card-body">
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>ID User</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>PWD</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor='let u of allUsers'>
+                                <td>{{u.id}}</td>
+                                <td>{{u.fName}} </td>
+                                <td>{{u.lName}}</td>
+                                <td>{{u.email}}</td>
+                                <td>{{u.pwd}}</td>
+                                <td>
+                                    <button (click)="displayUser(u.id)">Dispaly</button>
+                                    <button (click)="editUser(u.id)">Edit</button>
+                                    <button (click)="deleteUser(u.id)">Delete</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-blog" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="card m-3">
+                <div class="card-body">
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>Blog Title</th>
+                                <th>Author First Name</th>
+                                <th>Author Last Name</th>
+                                <th>Description</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor='let b of allBlogs'>
+                                <td>{{b.blogTitle}}</td>
+                                <td>{{b.fNameAuthor}} </td>
+                                <td>{{b.lNameAuthor}}</td>
+                                <td>{{b.description}}</td>
+                                <td>
+                                    <button (click)="displayBlog(b.id)">Dispaly</button>
+                                    <button (click)="editBlog(b.id)">Edit</button>
+                                    <button (click)="deleteBlog(b.id)">Delete</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
